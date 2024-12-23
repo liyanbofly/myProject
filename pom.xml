@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.2</version>
+        <relativePath/>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.self</groupId>
+    <artifactId>myproject</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>myproject-web</module>
+        <module>myproject-model</module>
+        <module>myproject-util</module>
+        <module>myproject-service</module>
+        <module>myproject-msg-provider</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <hutool.version>5.5.8</hutool.version>
+        <commons-lang.version>2.6</commons-lang.version>
+    </properties>
+
+
+<!--     dependencyManagement:用于集中管理项目的依赖项版本，不会下载，子pom需要加pom节点。在 `<dependencyManagement>` 中，你可以列出项目中使用的所有依赖项，
+         并指定它们的版本号。这样做的好处是，当项目的子模块或其他模块引用这些依赖项时，而无需在自己的 `pom.xml` 文件中重复指定版本号。-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.16</version>
+            </dependency>
+        </dependencies>
+
+    </dependencyManagement>
+
+    <!--dependencies 部分用于声明项目的依赖项，即列出项目所需要的外部库或模块。Maven 将会自动下载并引入这些依赖项到项目中。-->
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+<!--            <version>1.18.16</version>-->
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.83</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+
+
+
+    </dependencies>
+
+<!--    元素用于配置项目的发布管理信息，包括发布到远程仓库的设置。-->
+<!--    在 Maven 的 `pom.xml` 文件中，`<distributionManagement>` 元素通常用于指定项目的发布目标和发布仓库-->
+<!--    <distributionManagement>-->
+<!--        <repository>-->
+<!--            <id>releases</id>-->
+<!--            <url>http://nexus.dmall.com:8081/nexus/content/repositories/releases</url>-->
+<!--        </repository>-->
+<!--    </distributionManagement>-->
+</project>

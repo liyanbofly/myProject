@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: myproject-provider
+  profiles:
+    active: test
+
+server:
+  port: 8083
+  servlet:
+    context-path: /   #设置请求根路径
+
+logging:
+#  file:
+#    path: /weblog/logs/app/   #日志存放目录
+  level:
+    root: INFO
+
+
+

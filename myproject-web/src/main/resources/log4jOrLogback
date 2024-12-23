@@ -1,0 +1,26 @@
+
+1、pattern节点定义的输出模式解释
+<!--        %d{HH:mm:ss.SSS}  当前时间；-->
+<!--        [%thread]  [当前线程名称]-->
+<!--        %-5level  logger级别-->
+<!--        %logger{36} logger名称-->
+<!--        -%msg%n  定义的输出-->
+<!--        %line  输出日志的行号-->
+<!--        %n  换行-->
+<!--        %date和%d{yyyy-MM-dd HH:mm:ss.SSS}  当前时间包含年月日-->
+<!--        {%C.java:%L}  输出日志所在的java类、所在行及路径可以替换[%thread]-->
+
+
+
+2、traceId 记录MDC
+
+#MDC定义
+ Mapped Diagnostic Context，即：映射诊断环境。
+ MDC是 log4j 和 logback 提供的一种方便在多线程条件下记录日志的功能。
+ MDC 可以看成是一个与当前线程绑定的哈希表，可以往其中添加键值对。
+ #MDC的使用方法
+ 向MDC中设置值：MDC.put(key, value);
+ 从MDC中取值：MDC.get(key);
+ 将MDC中内容打印到日志中：%X{key}
+
+

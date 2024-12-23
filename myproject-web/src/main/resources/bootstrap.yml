@@ -1,0 +1,10 @@
+  # 1、其主要用于加载外部配置项，例如从配置服务器获取配置。 spring cloud 读取配置中心
+  #1、在应用程序启动时，Spring Boot 会首先加载 `bootstrap.yml` 文件中的配置项，并将其应用到应用程序的上下文中。
+  #2、请注意，`bootstrap.yml` 文件的使用并不是必需的，它主要用于加载外部配置项，例如从配置服务器获取配置。
+  #   如果你的应用程序不需要这样的功能，你可以直接使用 `application.yml` 或 `application.properties` 文件来配置应用程序。
+
+#其实也可以放在 application.yml
+
+
+
+

@@ -1,0 +1,53 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/xiyi_db?useUnicode=true&characterEncoding=utf-8&useSSL=false&socketTimeout=10000&serverTimezone=GMT%2B8&autoReconnect=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 15
+      minimum-idle: 13
+  kafka:
+    bootstrap-servers: localhost:9092 # Kafka服务器的地址和端口
+    consumer:
+      group-id: my-consumer-group # 消费者组ID
+      auto-offset-reset: earliest # 初始偏移量设置
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer # 键的反序列化器
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer # 值的反序列化器
+      properties:
+        max.poll.records: 100 # 最大拉取记录数
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer # 键的序列化器
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer # 值的序列化器
+      properties:
+        acks: all # 确认模式
+        retries: 3 # 发送失败重试次数
+        batch-size: 16384 # 批量发送大小
+        buffer-memory: 33554432 # 生产者用于缓存的内存大小
+        linger.ms: 1 # 发送延迟
+        key.serializer: org.apache.kafka.common.serialization.StringSerializer # 再次定义键的序列化器（可选）
+        value.serializer: org.apache.kafka.common.serialization.StringSerializer # 再次定义值的序列化器（可选）
+      template:
+        default-topic: my-default-topic # 默认主题
+
+
+
+
+
+#mybatis:
+#  mapper-locations: classpath:mappers/*.xml,classpath:mappers/ext/*.xml
+#  type-aliases-package: com.self.model.entity
+mybatis-plus:
+  mapper-locations: classpath:mappers/*.xml,classpath:mappers/ext/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+
+request-info:
+  cross-request:
+    trusted-origins:
+      - http://localhost:8080
+      - http://www.myself.com
+      - http://myself.com
+      - http://www.myself.com:8082
+    check-enable: true
