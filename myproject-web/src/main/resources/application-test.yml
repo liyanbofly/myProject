@@ -34,14 +34,14 @@ spring:
 
 
 
-mybatis:
-  mapper-locations: classpath:mappers/*.xml,classpath:mappers/ext/*.xml
-  type-aliases-package: com.self.model.entity
-#mybatis-plus:
+#mybatis:
 #  mapper-locations: classpath:mappers/*.xml,classpath:mappers/ext/*.xml
-#  global-config:
-#    db-config:
-#      id-type: auto
+#  type-aliases-package: com.self.model.entity
+mybatis-plus:
+  mapper-locations: classpath:mappers/*.xml,classpath:mappers/ext/*.xml
+  global-config:
+    db-config:
+      id-type: auto
 
 request-info:
   cross-request:
